@@ -1,0 +1,15 @@
+language: node_js
+node_js: '10'
+
+before_install: npm install -g @angular/cli
+install: npm install
+
+branches:
+  only:
+  - master
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "b7ce0507-600b-4da2-b6b1-5f51ecb0d5a2"
+  app: itea-ci
