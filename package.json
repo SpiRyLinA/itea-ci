@@ -6,6 +6,7 @@
     "start": "node server.js",
     "build": "ng build",
     "lint": "ng lint",
+    "test": "ng test --watch=false --browsers=Chrome --sourceMap=false",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod"
   },
