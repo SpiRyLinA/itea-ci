@@ -7,7 +7,7 @@
     "build": "ng build",
     "build:prod": "ng build --aot --prod",
     "lint": "ng lint",
-    "test": "ng test --watch=false --browsers=Chrome --sourceMap=false",
+    "test": "ng test --watch=false --browsers=Firefox --sourceMap=false",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod",
     "heroku-postbuild": "ng build --aot --prod"
