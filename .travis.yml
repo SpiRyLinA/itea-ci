@@ -9,10 +9,8 @@ jobs:
   include:
   - stage: deploy
     addons:
-      chrome: stable
-    before_install:
-    - npm install -g @angular/cli
-    - google-chrome-stable --headless --disable-gpu
+      firefox: latest
+    before_install: npm install -g @angular/cli
     install: npm install
     deploy:
       provider: heroku
