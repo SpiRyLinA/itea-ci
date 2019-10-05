@@ -1,10 +1,5 @@
 language: node_js
 node_js: '10'
-addons:
-  chrome: stable
-
-before_install: npm install -g @angular/cli
-install: npm install
 
 branches:
   only:
@@ -13,7 +8,10 @@ branches:
 jobs:
   include:
   - stage: deploy
-    script: true
+    addons:
+      chrome: stable
+    before_install: npm install -g @angular/cli
+    install: npm install
     deploy:
       provider: heroku
       api_key:
@@ -21,6 +19,6 @@ jobs:
       app: itea-ci
       on:
         branch: master
-        tags: true
+        tags: false
   - stage: after deploy test
     script: 'curl https://itea-ci.herokuapp.com'
