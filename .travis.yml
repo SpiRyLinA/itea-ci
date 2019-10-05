@@ -11,27 +11,18 @@ branches:
   only:
   - /.*/
 
-stages:
-  - name: buid
-    if: branch != master
-  - name: deploy
-    if: (tag =~ ^v) AND (branch = master)
-  - name: post_test
-    if: (tag =~ ^v) AND (branch = master)
-
 jobs:
   include:
-  - stage: deploy
+  - stage: build
     deploy:
       provider: heroku
       api_key:
-        secure: "b7ce0507-600b-4da2-b6b1-5f51ecb0d5a2"
+        secure: "UMbXLZ6quotZuxme+9x+lJezGIlo4uph9UFsdTzjQSFMPwBFdI2Q891m48SMlpfr5IU/QgxZMlYoISpWHIoQKXztodaXviHdNsdX0OdDyml52X5Ph0U5YjRaqagaDmVHpFf0JV8ptpZwmUFxIhhhOKV/U6ucTTEcYR+ZUUnsIeDNHJkCXIxyBWEfkmM7/02B/GBxIZJFqg7Wzo8QQoDsDaY8V5XuzMzJsgp88lI/6sP4GmtW35/Hib+vPXUfvyLC52PI+DM/WyEg9U8jUNJWBhsIZ0sTsupUFm95/PFJjyqcjB3GnGdX05Qve4+mNL0CVwGFT+0q5soAVzxht8la97GPqBAM2MUUNaJ/ROAT8S97G3WKa+dSxXax1MZac1rRXVYDBVo+u3AkNHrVYVFe3Gbfzdhi/SsivoQqMW1ZumYQCimnUul4ySgTZjp6VHzCty3wMZajKEg1chjnGyQ6EvkbDW8QeGzgw/xA+h+5Xyb6WQpgmgMxUunGHPBdVBXwUCxSrkrusVKm8A5EV3h0Oecd8jh+gTJYl78GEubhKzoOBckdeX4FSkg9otN602PFrCtfc1vfc+/9KHfyMHU+2iTmIHxFiqycMJFllDPNdczAwwYSiMCptSkYM4rgeidPthobV9KQYiDoLQvQ1uhpK3LCw1s/Z6lFIFloa+30Jcg="
       app: itea-ci
       on:
         branch: master
         tags: true
-  - stage: post_test
-    script: 'curl https://itea-ci.herokuapp.com'
+    after_deploy: curl https://itea-ci.herokuapp.com
 
 env:
   global:
