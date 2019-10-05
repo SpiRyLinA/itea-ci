@@ -22,3 +22,7 @@ jobs:
         tags: false
   - stage: after deploy test
     script: 'curl https://itea-ci.herokuapp.com'
+
+env:
+  global:
+  - MOZ_HEADLESS=1
