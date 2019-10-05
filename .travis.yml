@@ -10,7 +10,6 @@ jobs:
       firefox: latest
     before_install: npm install -g @angular/cli
     install: npm install
-    script: npm run build:prod
     deploy:
       provider: heroku
       api_key:
@@ -18,7 +17,7 @@ jobs:
       app: itea-ci
       on:
         branch: master
-        tags: false
+        tags: true
 
   - stage: after deploy test
     script: 'curl https://itea-ci.herokuapp.com'
