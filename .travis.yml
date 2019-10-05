@@ -1,15 +1,27 @@
+language: node_js
+node_js: '10'
+
+addons:
+  firefox: latest
+
+before_install: npm install -g @angular/cli
+install: npm install
+
+branches:
+  only:
+  - /.*/
+
+stages:
+  - name: buid
+    if: branch != master
+  - name: deploy
+    if: (tag =~ ^v) AND (branch = master)
+  - name: post_test
+    if: (tag =~ ^v) AND (branch = master)
+
 jobs:
   include:
-  - stage: deploy prod
-    language: node_js
-    node_js: '10'
-    branches:
-      only:
-      - master
-    addons:
-      firefox: latest
-    before_install: npm install -g @angular/cli
-    install: npm install
+  - stage: deploy
     deploy:
       provider: heroku
       api_key:
@@ -18,8 +30,7 @@ jobs:
       on:
         branch: master
         tags: true
-
-  - stage: after deploy test
+  - stage: post_test
     script: 'curl https://itea-ci.herokuapp.com'
 
 env:
