@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "test": "ng test --watch=false --browsers=Firefox --sourceMap=false",
     "e2e": "ng e2e",
-    "heroku-build": "ng build --aot --prod"
+    "postinstall": "ng build --aot --prod",
+    "heroku-postbuild": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
