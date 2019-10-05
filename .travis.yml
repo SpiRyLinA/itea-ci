@@ -1,17 +1,18 @@
-language: node_js
-node_js: '10'
 
-branches:
-  only:
-  - master
 
 jobs:
   include:
   - stage: deploy
+    language: node_js
+    node_js: '10'
+    branches:
+      only:
+      - master
     addons:
       firefox: latest
     before_install: npm install -g @angular/cli
     install: npm install
+    script: npm run build:prod
     deploy:
       provider: heroku
       api_key:
@@ -20,6 +21,7 @@ jobs:
       on:
         branch: master
         tags: false
+
   - stage: after deploy test
     script: 'curl https://itea-ci.herokuapp.com'
 
