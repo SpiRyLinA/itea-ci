@@ -13,7 +13,7 @@ branches:
 jobs:
   include:
   - stage: deploy
-    script: skip
+    script: true
     deploy:
       provider: heroku
       api_key:
