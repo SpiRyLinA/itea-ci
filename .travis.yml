@@ -1,29 +1,24 @@
 language: node_js
 node_js: '10'
-
 addons:
   firefox: latest
-
 before_install: npm install -g @angular/cli
 install: npm install
-
 branches:
   only:
-  - /.*/
-
+  - "/.*/"
 jobs:
   include:
   - stage: build
     deploy:
       provider: heroku
       api_key:
-        secure: "UMbXLZ6quotZuxme+9x+lJezGIlo4uph9UFsdTzjQSFMPwBFdI2Q891m48SMlpfr5IU/QgxZMlYoISpWHIoQKXztodaXviHdNsdX0OdDyml52X5Ph0U5YjRaqagaDmVHpFf0JV8ptpZwmUFxIhhhOKV/U6ucTTEcYR+ZUUnsIeDNHJkCXIxyBWEfkmM7/02B/GBxIZJFqg7Wzo8QQoDsDaY8V5XuzMzJsgp88lI/6sP4GmtW35/Hib+vPXUfvyLC52PI+DM/WyEg9U8jUNJWBhsIZ0sTsupUFm95/PFJjyqcjB3GnGdX05Qve4+mNL0CVwGFT+0q5soAVzxht8la97GPqBAM2MUUNaJ/ROAT8S97G3WKa+dSxXax1MZac1rRXVYDBVo+u3AkNHrVYVFe3Gbfzdhi/SsivoQqMW1ZumYQCimnUul4ySgTZjp6VHzCty3wMZajKEg1chjnGyQ6EvkbDW8QeGzgw/xA+h+5Xyb6WQpgmgMxUunGHPBdVBXwUCxSrkrusVKm8A5EV3h0Oecd8jh+gTJYl78GEubhKzoOBckdeX4FSkg9otN602PFrCtfc1vfc+/9KHfyMHU+2iTmIHxFiqycMJFllDPNdczAwwYSiMCptSkYM4rgeidPthobV9KQYiDoLQvQ1uhpK3LCw1s/Z6lFIFloa+30Jcg="
+        secure: FUtAWJKzoxD+N7f0XpB0uxmjQvrOHp/rryS/tPrHQXoijGCd/pL6Hh5LA/IO5ZAR7WA0HPKVg6HG5IDVjV+QQLnzca7E0yV61l2x+Z+YmRlxFUp84W58wdStZkgFE+td7MoVGwCJGn5KfUD7TcUBXDHGu6S+IsSCygJjVUiFEnDHR6f/Kz2yNADizC3ty103N1JCJ81lN326DAbsIdFIXS35iUsgoPfWpDsCbEhlEn7yWORK1Dx6/uZaTnqLkL7UFkszwhpxK2c1kiZDbG+B9WkDyHdoQc0s7ekpIQ94q1qzkCYyqXkSJw6CFAAD3ZAVQEx+78Io541FWpct/0IO6AYf2WZujJJln019p7xFgwLwBKAoHq8h03kk0KF6W62v+zLfe0/Mwo5vSfrDZl39631mBwWjPi7c7raSavATXHDhDh/cxEOFddUzpGqaZiGrU9NgpP+n6FB6675fF/KaWu0i1OYmky1HijfrMJI2YSvV13S7Z7n53s3Jmo2+R6DWXeuwN4UGW6Kd2x+cmqTW2FvS1rfTdENyhMuKc5wOjA/UJuoKl6dPt6MtREwRnPu69kl1NI1YoWD7wWNMqLn4RBdrKD+k6PzvrLR1t8lg3jY1EuQtCkyJkaL7VfWBh9sMUXg4+fXqemq/4dmaCV1dqjTPxj+Sa2ldy+Gl+iXeQlI=
       app: itea-ci
       on:
         branch: master
         tags: true
     after_deploy: curl https://itea-ci.herokuapp.com
-
 env:
   global:
   - MOZ_HEADLESS=1
