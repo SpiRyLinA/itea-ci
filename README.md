@@ -1,6 +1,12 @@
+[![Build Status](https://travis-ci.org/SpiRyLinA/itea-ci.svg?branch=master)](https://travis-ci.org/SpiRyLinA/itea-ci)
+
 # IteaCi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.7.
+
+## Check it out
+
+https://itea-ci.herokuapp.com
 
 ## Development server
 
