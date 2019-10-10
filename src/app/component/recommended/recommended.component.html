@@ -1,0 +1,35 @@
+<div class="container-fluid container-wrap">
+  <div class="row">
+    <h3>RECOMMENDED</h3>
+  </div>
+  <app-preloader *ngIf="!recommendedShow"></app-preloader>
+    <div *ngIf="recommendedShow" class="col m12 z-depth-5">
+      <div class="card horizontal">
+        <div class="card-wrap">
+          <div class="card-image main-card-image">
+            <a [href]="recommendedShow.url" target="_blank">
+              <img [src]="recommendedShow.image.medium">
+            </a>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>{{recommendedShow.name}}</h5>
+              <h6>
+                Every:
+                <ng-container *ngFor="let day of recommendedShow.schedule.days">
+                  {{day}}
+                </ng-container>
+                at {{recommendedShow.schedule.time}}
+              </h6>
+              <div [innerHTML]="recommendedShow.summary"></div>
+            </div>
+            <div class="card-action">
+              <a target="_blank" [href]="recommendedShow.url">Watch now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
