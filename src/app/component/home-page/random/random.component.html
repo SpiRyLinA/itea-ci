@@ -1,0 +1,35 @@
+<div class="container-fluid container-wrap">
+  <div class="row">
+    <h4>RANDOMLY</h4>
+  </div>
+  <div class="row z-depth-5">
+    <ng-container *ngFor="let item of shows">
+      <div class="col m3 last-item">
+        <div class="card horizontal">
+          <div class="card-wrap">
+            <div class="card-image main-card-image">
+              <a [href]="item.url"
+                 target="_blank"
+                 (click)="saveToLocalStorage(item)">
+                <img [src]="item.image.medium">
+              </a>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <b>{{item.name}}</b>
+                <div [innerHTML]="item.summary.slice(0, 100) + '...'"></div>
+              </div>
+              <div class="card-action">
+                <a target="_blank"
+                   [href]="item.url"
+                   (click)="saveToLocalStorage(item)">Watch now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
