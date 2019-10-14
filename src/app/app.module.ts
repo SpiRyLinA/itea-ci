@@ -1,16 +1,24 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import {ScheduleService} from './service/schedule.service';
+import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { HeaderComponent } from './component/header/header.component';
-import { PreloaderComponent } from './component/preloader/preloader.component';
-import { ComingSoonComponent } from './component/coming-soon/coming-soon.component';
-import { HomePageComponent } from './page/home-page/home-page.component';
-import { RecommendedComponent } from './component/recommended/recommended.component';
-import { LastViewedComponent } from './component/last-viewed/last-viewed.component';
+import {HeaderComponent} from './component/shared/header/header.component';
+import {PreloaderComponent} from './component/shared/preloader/preloader.component';
+import {ComingSoonComponent} from './component/home-page/coming-soon/coming-soon.component';
+import {HomePageComponent} from './page/home-page/home-page.component';
+import {RecommendedComponent} from './component/home-page/recommended/recommended.component';
+import {LastViewedComponent} from './component/home-page/last-viewed/last-viewed.component';
+import {RouterModule, Routes} from '@angular/router';
+import { RandomComponent } from './component/home-page/random/random.component';
+
+export const appRoutes: Routes = [
+  { path: '',
+    redirectTo: '/',
+    pathMatch: 'full'
+  },
+];
 
 @NgModule({
   declarations: [
@@ -20,15 +28,14 @@ import { LastViewedComponent } from './component/last-viewed/last-viewed.compone
     ComingSoonComponent,
     HomePageComponent,
     RecommendedComponent,
-    LastViewedComponent
+    LastViewedComponent,
+    RandomComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
-  ],
-  providers: [
-    ScheduleService
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   bootstrap: [AppComponent]
 })

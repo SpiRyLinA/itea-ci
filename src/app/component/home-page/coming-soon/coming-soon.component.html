@@ -1,0 +1,61 @@
+<div class="container-fluid container-wrap">
+  <div class="row">
+    <h4>COMING SOON</h4>
+  </div>
+  <app-preloader *ngIf="!schedules"></app-preloader>
+  <div *ngIf="schedules" class="row z-depth-5">
+    <div class="col m6">
+      <div class="card horizontal">
+        <div class="card-wrap">
+          <div class="card-image main-card-image">
+            <a [href]="schedules[0].url"
+               target="_blank"
+               (click)="saveToLocalStorage(schedules[0].show)">
+              <img [src]="schedules[0].show.image.medium">
+            </a>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>{{schedules[0].show.name}}</h5>
+              <h6>{{schedules[0].airstamp | date: 'MMM d, y, h:mm a'}} (Season: {{schedules[0].season}}, Episode: {{schedules[0].number}})</h6>
+              <div [innerHTML]="schedules[0].show.summary.slice(0, 200) + '...'"></div>
+            </div>
+            <div class="card-action">
+              <a target="_blank"
+                 [href]="schedules[0].url"
+                 (click)="saveToLocalStorage(schedules[0].show)">Watch now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col m6">
+      <ng-container *ngIf="schedules">
+        <div class="card horizontal mini-horizontal" *ngFor="let item of schedules | slice:1 ">
+          <div class="card-wrap">
+            <div class="card-image mini-card-image">
+              <a [href]="item.url"
+                 target="_blank"
+                 (click)="saveToLocalStorage(item.show)">
+                <img [src]="item.show.image.medium">
+              </a>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <b>{{item.show.name}}</b>
+                <p>{{item.airstamp | date: 'MMM d, y, h:mm a'}} (Season: {{item.season}}, Episode: {{item.number}})</p>
+              </div>
+              <div class="card-action">
+                <a target="_blank"
+                   [href]="item.url"
+                   (click)="saveToLocalStorage(item.show)">Watch now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+

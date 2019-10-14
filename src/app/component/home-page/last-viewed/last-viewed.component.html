@@ -1,0 +1,38 @@
+<div class="container-fluid container-wrap">
+  <div class="row">
+    <h4>LAST VIEWS</h4>
+  </div>
+  <div class="row z-depth-5">
+    <div *ngIf="!lastViewsShows" class="col m12">
+      <h4 class="bg-text">NOTHING WAS VIEWED</h4>
+    </div>
+    <ng-container *ngFor="let item of lastViewsShows">
+      <div class="col m3 last-item">
+        <div class="card horizontal">
+          <div class="card-wrap">
+            <div class="card-image main-card-image">
+              <a [href]="item.show.url"
+                 target="_blank"
+                 (click)="saveToLocalStorage(item.show)">
+                <img [src]="item.show.image.medium">
+              </a>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <b>{{item.show.name}}</b>
+                <p class="p-small">Last View: {{item.lastView | date: 'MMM d, y, h:mm a'}}</p>
+              </div>
+              <div class="card-action">
+                <a target="_blank"
+                   [href]="item.show.url"
+                   (click)="saveToLocalStorage(item.show)">Watch now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
