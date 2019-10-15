@@ -8,22 +8,21 @@
       <div class="card horizontal">
         <div class="card-wrap">
           <div class="card-image main-card-image">
-            <a [href]="schedules[0].url"
-               target="_blank"
-               (click)="saveToLocalStorage(schedules[0].show)">
-              <img [src]="schedules[0].show.image.medium">
+            <a [routerLink]="'/show/' + schedules[0].show.id + '/' + schedules[0].id">
+              <img [src]="schedules[0].show.image?.medium">
             </a>
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <h5>{{schedules[0].show.name}}</h5>
               <h6>{{schedules[0].airstamp | date: 'MMM d, y, h:mm a'}} (Season: {{schedules[0].season}}, Episode: {{schedules[0].number}})</h6>
-              <div [innerHTML]="schedules[0].show.summary.slice(0, 200) + '...'"></div>
+              <div [innerHTML]="schedules[0].show.summary?.slice(0, 200) + '...'"></div>
             </div>
             <div class="card-action">
-              <a target="_blank"
-                 [href]="schedules[0].url"
-                 (click)="saveToLocalStorage(schedules[0].show)">Watch now</a>
+              <button class="btn waves-effect waves-light"
+                      [routerLink]="'/show/' + schedules[0].show.id + '/episode/' + schedules[0].id">Watch
+                <i class="material-icons right">live_tv</i>
+              </button>
             </div>
           </div>
         </div>
@@ -34,10 +33,8 @@
         <div class="card horizontal mini-horizontal" *ngFor="let item of schedules | slice:1 ">
           <div class="card-wrap">
             <div class="card-image mini-card-image">
-              <a [href]="item.url"
-                 target="_blank"
-                 (click)="saveToLocalStorage(item.show)">
-                <img [src]="item.show.image.medium">
+              <a [routerLink]="'/show/' + item.show.id + '/episode/' + item.id">
+                <img [src]="item.show.image?.medium">
               </a>
             </div>
             <div class="card-stacked">
@@ -46,9 +43,10 @@
                 <p>{{item.airstamp | date: 'MMM d, y, h:mm a'}} (Season: {{item.season}}, Episode: {{item.number}})</p>
               </div>
               <div class="card-action">
-                <a target="_blank"
-                   [href]="item.url"
-                   (click)="saveToLocalStorage(item.show)">Watch now</a>
+                <button class="btn waves-effect waves-light btn-small"
+                        [routerLink]="'/show/' + item.show.id + '/episode/' + item.id">Watch
+                  <i class="material-icons right">live_tv</i>
+                </button>
               </div>
             </div>
           </div>

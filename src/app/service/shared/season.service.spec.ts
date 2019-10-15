@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { SeasonService } from './season.service';
+import {SeasonService} from './season.service';
 import {HttpClientModule} from '@angular/common/http';
 
 describe('SeasonService', () => {

@@ -7,9 +7,7 @@
       <div class="card horizontal">
         <div class="card-wrap">
           <div class="card-image main-card-image">
-            <a [href]="recommendedShow.url"
-               target="_blank"
-               (click)="saveToLocalStorage()">
+            <a [routerLink]="'/show/' + recommendedShow.id">
               <img [src]="recommendedShow.image.medium">
             </a>
           </div>
@@ -26,9 +24,10 @@
               <div [innerHTML]="recommendedShow.summary"></div>
             </div>
             <div class="card-action">
-              <a target="_blank"
-                 [href]="recommendedShow.url"
-                 (click)="saveToLocalStorage()">Watch now</a>
+              <button class="btn waves-effect waves-light"
+                      [routerLink]="'/show/' + recommendedShow.id">Watch
+                <i class="material-icons right">live_tv</i>
+              </button>
             </div>
           </div>
         </div>

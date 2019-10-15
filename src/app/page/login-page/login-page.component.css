@@ -1,0 +1,17 @@
+.container-fluid {
+  margin: 1rem;
+}
+.container-wrap {
+  max-width: 780px;
+  margin: 1rem auto;
+  display: block;
+  padding: 1rem;
+}
+
+.row h4 {
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+}

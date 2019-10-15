@@ -10,15 +10,14 @@ import {ComingSoonComponent} from './component/home-page/coming-soon/coming-soon
 import {HomePageComponent} from './page/home-page/home-page.component';
 import {RecommendedComponent} from './component/home-page/recommended/recommended.component';
 import {LastViewedComponent} from './component/home-page/last-viewed/last-viewed.component';
-import {RouterModule, Routes} from '@angular/router';
-import { RandomComponent } from './component/home-page/random/random.component';
+import {RandomComponent} from './component/home-page/random/random.component';
+import {ShowPageComponent} from './page/show-page/show-page.component';
+import {AppRoutingModule} from './app-routing.module';
+import {SeasonPageComponent} from './page/season-page/season-page.component';
+import {EpisodePageComponent} from './page/episode-page/episode-page.component';
+import { LoginPageComponent } from './page/login-page/login-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
-export const appRoutes: Routes = [
-  { path: '',
-    redirectTo: '/',
-    pathMatch: 'full'
-  },
-];
 
 @NgModule({
   declarations: [
@@ -30,12 +29,17 @@ export const appRoutes: Routes = [
     RecommendedComponent,
     LastViewedComponent,
     RandomComponent,
+    ShowPageComponent,
+    SeasonPageComponent,
+    EpisodePageComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

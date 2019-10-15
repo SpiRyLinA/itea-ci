@@ -15,16 +15,16 @@ export class StorageService {
 
   public saveLastView(show: Show): void {
     const lastViews = localStorage.getItem('lastViewsShows');
-    let lastViewsArr: LastViews[] = [];
+    let lastViewsArr: Map<number, LastViews> = new Map<number, LastViews>();
     if (lastViews != null) {
-      lastViewsArr = JSON.parse(lastViews);
+      lastViewsArr = new Map<number, LastViews>(JSON.parse(lastViews));
     }
-    lastViewsArr.push(new LastViews(show, new Date()));
-    localStorage.setItem('lastViewsShows', JSON.stringify(lastViewsArr));
+    lastViewsArr.set(show.id, new LastViews(show, new Date()));
+    localStorage.setItem('lastViewsShows', JSON.stringify(Array.from(lastViewsArr.entries())));
     this.newViewSubject.next();
   }
 
-  public getLastViews(): LastViews[] {
-    return JSON.parse(localStorage.getItem('lastViewsShows'));
+  public getLastViews(): any[] {
+    return Array.from(new Map(JSON.parse(localStorage.getItem('lastViewsShows'))).values());
   }
 }

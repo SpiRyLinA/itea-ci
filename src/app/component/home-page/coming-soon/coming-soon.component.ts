@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GetScheduleRequest, Schedule} from '../../../model/schedule';
 import {ScheduleService} from '../../../service/shared/schedule.service';
-import {StorageService} from '../../../service/shared/storage.service';
-import {Show} from '../../../model/show';
 
 @Component({
   selector: 'app-coming-soon',
@@ -12,15 +10,10 @@ import {Show} from '../../../model/show';
 export class ComingSoonComponent implements OnInit {
   public schedules: Schedule[];
 
-  constructor(private readonly scheduleService: ScheduleService,
-              private readonly storageService: StorageService) {}
+  constructor(private readonly scheduleService: ScheduleService) {}
 
   ngOnInit() {
     this.initShows();
-  }
-
-  public saveToLocalStorage(show: Show): void {
-    this.storageService.saveLastView(show);
   }
 
   private initShows() {

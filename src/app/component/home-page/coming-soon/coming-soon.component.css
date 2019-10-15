@@ -2,7 +2,7 @@
   margin: 1rem;
 }
 
-.card,.horizontal .card-wrap {
+.card, .horizontal .card-wrap {
   display: flex;
   width: 100%;
 }
@@ -18,6 +18,10 @@ app-preloader {
   margin: 0;
 }
 
+.main-card-image a {
+  display: flex;
+}
+
 .mini-card-image {
   width: 4rem;
   display: flex;
@@ -27,7 +31,7 @@ app-preloader {
   display: flex;
 }
 
-.mini-horizontal .card-content,.card-action {
+.mini-horizontal .card-content, .card-action {
   padding: 5px 20px 5px 20px;
 }
 
@@ -48,4 +52,15 @@ app-preloader {
 
 .card-action a {
   color: #ed706d !important;
+}
+
+.btn-small {
+  line-height: 1.5rem;
+  height: 25px;
+  font-size: 12px;
+  padding: 0 1rem;
+}
+
+.btn-small i {
+  font-size: 1.1rem;
 }

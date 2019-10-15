@@ -1,0 +1,39 @@
+.container-fluid {
+  margin: 1rem;
+}
+
+.card,.horizontal .card-wrap {
+  display: flex;
+  width: 100%;
+}
+
+app-preloader {
+  margin: 0.5rem 0 0.5rem 3rem;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.container-wrap {
+  max-width: 1280px;
+  margin: 1rem auto;
+  display: block;
+}
+
+.container-wrap .row {
+  display: flex;
+  align-items: center;
+}
+
+.card-action a {
+  color: #ed706d !important;
+}
+
+.star {
+  color: #ffd000;
+}

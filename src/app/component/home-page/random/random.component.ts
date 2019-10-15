@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Show} from '../../../model/show';
 import {ShowService} from '../../../service/shared/show.service';
-import {StorageService} from '../../../service/shared/storage.service';
 
 @Component({
   selector: 'app-random',
@@ -12,15 +11,10 @@ export class RandomComponent implements OnInit {
 
   public shows: Show[];
 
-  constructor(private readonly showService: ShowService,
-              private readonly storageService: StorageService) { }
+  constructor(private readonly showService: ShowService) { }
 
   ngOnInit() {
     this.initRandomShows();
-  }
-
-  public saveToLocalStorage(show: Show): void {
-    this.storageService.saveLastView(show);
   }
 
   private initRandomShows(): void {

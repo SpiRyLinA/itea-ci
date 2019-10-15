@@ -42,3 +42,14 @@ app-preloader {
 .p-small {
   font-size: 10px;
 }
+
+.btn-small {
+  line-height: 1.5rem;
+  height: 25px;
+  font-size: 12px;
+  padding: 0 1rem;
+}
+
+.btn-small i {
+  font-size: 1.1rem;
+}

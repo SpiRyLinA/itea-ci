@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container-fluid container-wrap z-depth-5">
+  <app-preloader *ngIf="!season"></app-preloader>
+  <div *ngIf="season" class="row">
+    <div class="col m12">
+      <div class="card horizontal">
+        <div class="card-wrap">
+          <div class="card-image main-card-image">
+            <img [src]="season.image?.medium || show.image?.medium">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5>{{season.name || show.name}} (Season #{{season.number}})</h5>
+              <div [innerHTML]="season.summary || show.summary"></div>
+            </div>
+            <div class="card-action">
+              <button class="btn waves-effect waves-light" [routerLink]="'/show/' + show.id">back to show
+                <i class="material-icons right">home</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m12">
+      <ul class="collection">
+        <a class="collection-item avatar" *ngFor="let item of episodes"
+           [routerLink]="'/show/' + show.id + '/episode/' + item.id">
+          <img [src]="item.image?.medium || season.image?.medium || show.image?.medium" class="circle">
+          <span class="title">Episode #{{item.number}}</span>
+          <p>{{item.name}}</p>
+          <i class="secondary-content material-icons">send</i>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

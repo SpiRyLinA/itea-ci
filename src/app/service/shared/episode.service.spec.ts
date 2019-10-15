@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { EpisodeService } from './episode.service';
+import {EpisodeService} from './episode.service';
 import {HttpClientModule} from '@angular/common/http';
 
 describe('EpisodeService', () => {

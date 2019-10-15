@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ScheduleService } from './schedule.service';
+import {ScheduleService} from './schedule.service';
 import {HttpClientModule} from '@angular/common/http';
 
 describe('ScheduleService', () => {

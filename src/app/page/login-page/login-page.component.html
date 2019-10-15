@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container-fluid container-wrap z-depth-5">
+  <div class="row">
+    <h4>LOGIN</h4>
+  </div>
+  <div class="row">
+    <form [formGroup]="loginForm" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="login" type="text" class="validate" formControlName="login">
+          <label for="login">Login</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input id="password" type="password" class="validate" formControlName="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <a class="waves-effect waves-light btn"
+             (click)="doLogin()">
+            <i class="material-icons right">send</i>
+            SIGN IN
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

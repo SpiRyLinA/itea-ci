@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LastViews} from '../../../model/last-views';
 import {StorageService} from '../../../service/shared/storage.service';
-import {Show} from '../../../model/show';
 
 @Component({
   selector: 'app-last-viewed',
@@ -18,10 +17,6 @@ export class LastViewedComponent implements OnInit {
   ngOnInit() {
     this.initLasViews();
 
-  }
-
-  public saveToLocalStorage(show: Show): void {
-    this.storageService.saveLastView(show);
   }
 
   private initLasViews() {
