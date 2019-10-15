@@ -15,7 +15,7 @@ import {ShowPageComponent} from './page/show-page/show-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import {SeasonPageComponent} from './page/season-page/season-page.component';
 import {EpisodePageComponent} from './page/episode-page/episode-page.component';
-import { LoginPageComponent } from './page/login-page/login-page.component';
+import {LoginPageComponent} from './page/login-page/login-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 
