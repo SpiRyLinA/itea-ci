@@ -7,25 +7,44 @@
     <form [formGroup]="loginForm" class="col s12">
       <div class="row">
         <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="login" type="text" class="validate" formControlName="login">
+          <i class="material-icons prefix icon-color">account_circle</i>
+          <input id="login"
+                 type="text"
+                 class="validate"
+                 formControlName="login"
+                 [ngClass]="{'error-border': (!loginControl.valid && loginControl.touched)}">
           <label for="login">Login</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <i class="material-icons prefix">lock</i>
-          <input id="password" type="password" class="validate" formControlName="password">
+          <i class="material-icons prefix icon-color">lock</i>
+          <input id="password"
+                 type="password"
+                 class="validate"
+                 formControlName="password"
+                 [ngClass]="{'error-border': (!passwordControl.valid && passwordControl.touched)}">
           <label for="password">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
-          <a class="waves-effect waves-light btn"
-             (click)="doLogin()">
+          <button class="waves-effect waves-light btn"
+             (click)="doLogin()"
+             [disabled]="!loginForm.valid && loginForm.touched">
             <i class="material-icons right">send</i>
             SIGN IN
-          </a>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="!loginForm.valid && loginForm.touched" class="row error-row">
+        <div *ngIf="loginControl.errors" class="col s12">
+          <b *ngIf="loginControl.errors?.required">Login field is required</b>
+          <b *ngIf="loginControl.errors?.maxlength">Login field should be lower than {{loginControl.errors?.maxlength?.requiredLength}}</b>
+        </div>
+        <div *ngIf="passwordControl.errors" class="col s12">
+          <b *ngIf="passwordControl.errors?.required">Password field is required</b>
+          <b *ngIf="passwordControl.errors?.maxlength">Password field should be lower than {{passwordControl.errors?.maxlength?.requiredLength}}</b>
         </div>
       </div>
     </form>

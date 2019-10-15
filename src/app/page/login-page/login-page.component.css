@@ -15,3 +15,17 @@
 .btn {
   width: 100%;
 }
+
+.error-row {
+  margin: 0;
+  text-align: center;
+  color: #ed706d;
+}
+
+.error-border {
+  border-color: #ed706d !important;
+}
+
+.icon-color {
+  color: #00ba9b;
+}

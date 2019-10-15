@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -17,7 +17,18 @@ export class LoginPageComponent implements OnInit {
   }
 
   public doLogin(): void {
+    this.loginForm.markAllAsTouched();
+    if (this.loginForm.valid) {
+      console.log({login: this.loginControl.value, password: this.passwordControl.value});
+    }
+  }
 
+  get loginControl(): AbstractControl {
+    return this.loginForm.controls.login;
+  }
+
+  get passwordControl(): AbstractControl {
+    return this.loginForm.controls.password;
   }
 
   private createForm(): void {
