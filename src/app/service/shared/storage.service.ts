@@ -25,6 +25,7 @@ export class StorageService {
   }
 
   public getLastViews(): any[] {
-    return Array.from(new Map(JSON.parse(localStorage.getItem('lastViewsShows'))).values());
+    const array = Array.from(new Map(JSON.parse(localStorage.getItem('lastViewsShows'))).values());
+    return array.length ? array : null;
   }
 }
